@@ -13,21 +13,20 @@
 		<a class="btn success" id="add" href="addComputer.jsp">Add Computer</a>
 	</div>
 
-		<table class="computers zebra-striped">
-			<thead>
-				<tr>
-					<!-- Variable declarations for passing labels as parameters -->
-					<!-- Table header for Computer Name -->
-					<th>Computer Name</th>
-					<th>Introduced Date</th>
-					<!-- Table header for Discontinued Date -->
-					<th>Discontinued Date</th>
-					<!-- Table header for Company -->
-					<th>Company</th>
-				</tr>
-			</thead>
-			<tbody>
-
+	<table class="computers zebra-striped">
+		<thead>
+			<tr>
+				<!-- Variable declarations for passing labels as parameters -->
+				<!-- Table header for Computer Name -->
+				<th>Computer Name</th>
+				<th>Introduced Date</th>
+				<!-- Table header for Discontinued Date -->
+				<th>Discontinued Date</th>
+				<!-- Table header for Company -->
+				<th>Company</th>
+			</tr>
+		</thead>
+		<tbody>
 				<tr>
 					<td><a href="#" onclick="">ThinkPad T420</a></td>
 					<td>2011-01-01</td>

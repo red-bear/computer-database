@@ -14,11 +14,11 @@ Ajout,
 Modification,
 Suppréssion.
 
-Vu que notre projet et un peu différent des autres, on a décidé d'essayer TOUT les méthodes
-et technologies disponibles aujourd'hui en pratique (EJB inclus), en dépencant plus de temps.
-Cela nous a permit par contre d'enrichir vraiment nos connaissances. 
-A la fin on a donc une application complet et configuré. Certains fonctions n'étaient quand meme 
-pas implémentés vu les difficultés qu'on a rencontré pendant la configuration de Maven.
+Vu que notre projet est différent des autres, on a décidé d'essayer en pratique toutes les méthodes
+et technologies disponibles aujourd'hui sur le marché (EJB inclus), en dépensant plus de temps.
+Cela nous a permit, par contre, d'enrichir vraiment nos connaissances. 
+A la fin on a donc une application complète et configuré. Certaines fonctions n'étaient quand meme 
+pas implémentés vu des difficultés qu'on a rencontré pendant la configuration de Maven.
 Après avoir essayé les technos on a fait ces choix:
 
 Choix Technologiques:

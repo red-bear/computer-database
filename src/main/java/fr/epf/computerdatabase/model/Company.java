@@ -1,7 +1,10 @@
 package fr.epf.computerdatabase.model;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -9,19 +12,22 @@ import javax.persistence.Table;
 @Entity
 @NamedQuery(name= Company.FIND_ALL,query="SELECT c FROM Company c")
 @Table(name="company")
-public class Company {
+public class Company implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue
-	private Integer id;
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 	
 	private String name;
 
 	public static final String FIND_ALL =  "Company.findAll";
 	
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 	public String getName() {

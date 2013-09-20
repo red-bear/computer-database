@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
 
 import fr.epf.computerdatabase.DAO.CompanyDAO;
 import fr.epf.computerdatabase.model.Company;
@@ -17,8 +17,11 @@ public class CompanyServiceImpl implements CompanyService {
 	@Autowired
 	CompanyDAO companyDAO;
 	
-	@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 	public List<Company> getAllCompanies() {
 		return companyDAO.getAllCompanies();
+	}
+	
+	public Company getCompanyById(long id) {
+		return companyDAO.getCompanyById(id);
 	}
 }

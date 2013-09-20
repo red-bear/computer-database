@@ -7,9 +7,9 @@ import fr.epf.computerdatabase.model.Computer;
 public interface ComputerDAO {
 	void addComputer(Computer comp);
 	Computer getComputerById(long id);
-	void updateComputer(Computer comp);
+	void updateComputer(Computer comp, String ancient_name);
 	List<Computer> getAllComputers();
+	List<Computer> getComputersByName(String name);	
 	long countAllComputers();
-	List<Computer> getComputersByName(String name);
 	void deleteComputer(Long id);
 }

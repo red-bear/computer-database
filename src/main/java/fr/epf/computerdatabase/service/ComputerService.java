@@ -8,9 +8,9 @@ public interface ComputerService {
 	
 	void addComputer(Computer comp);
 	Computer getComputerById(long id);
-	void updateComputer(Computer comp);
+	void updateComputer(Computer comp, String ancient_name);
 	List<Computer> getAllComputers();
-	long countAllComputers();
 	List<Computer> getComputersByName(String name);
+	long countAllComputers();	
 	void deleteComputer(Long id);
 }

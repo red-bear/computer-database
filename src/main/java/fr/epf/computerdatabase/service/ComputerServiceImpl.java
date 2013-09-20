@@ -20,8 +20,6 @@ public class ComputerServiceImpl implements ComputerService {
 	public void addComputer(Computer comp) {
 		if(comp.getId() == null) {
 			computerDAO.addComputer(comp);
-		} else {
-			computerDAO.updateComputer(comp);
 		}
 	}
 	
@@ -29,11 +27,10 @@ public class ComputerServiceImpl implements ComputerService {
 		return computerDAO.getComputerById(id);
 	}
 	
-	public void updateComputer(Computer comp) {
-		computerDAO.updateComputer(comp);
+	public void updateComputer(Computer comp, String ancient_name) {
+		computerDAO.updateComputer(comp, ancient_name);
 	}
 	
-	@Transactional(propagation=Propagation.SUPPORTS, readOnly=true)
 	public List<Computer> getAllComputers() {
 		return	computerDAO.getAllComputers();
 	}
@@ -45,7 +42,7 @@ public class ComputerServiceImpl implements ComputerService {
 	public List<Computer> getComputersByName(String name) {
 		return computerDAO.getComputersByName(name);
 	}
-	
+
 	public void deleteComputer(Long id){
 		computerDAO.deleteComputer(id);
 	}

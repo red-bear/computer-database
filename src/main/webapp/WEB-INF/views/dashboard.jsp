@@ -39,14 +39,14 @@
 				<th>Discontinued Date</th>
 				<!-- Table header for Company -->
 				<th>Company</th>
-				<!-- Header for suppression -->
-				<th>Delete</th>
+				<th>Action</th>
 			</tr>
 		</thead>
 		<tbody>
 				<c:forEach items="${computers}" var="comp">  
 				<tr>
-					<td><a href="editcomputer?id=${comp.id}" onclick=""><c:out value="${comp.name}"/></a></td>
+					<td><a href="editcomputer?id=${comp.id}" onclick="">
+					<c:out value="${comp.name}"/></a></td>
 					<td><c:out value="${comp.introduced}"/></td>
 					<td><c:out value="${comp.discontinued}"/></td>
 					<td><c:out value="${comp.company.name}"/></td>

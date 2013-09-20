@@ -6,4 +6,5 @@ import fr.epf.computerdatabase.model.Company;
 
 public interface CompanyService {
 	List<Company> getAllCompanies();
+	Company getCompanyById(long id);
 }

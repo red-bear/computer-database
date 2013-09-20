@@ -23,4 +23,8 @@ public class JpaCompanyDAO implements CompanyDAO {
 		Query query = em.createNamedQuery(Company.FIND_ALL);
 		return query.getResultList();
 	}
+	
+	public Company getCompanyById(long id) {
+		return em.find(Company.class, id);
+	}
 }

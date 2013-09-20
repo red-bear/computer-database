@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="sf" uri="http://www.springframework.org/tags/form" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,19 +17,14 @@
 <jsp:include page="include/header.jsp" />
 <section id="main">
 
-	<h1>
-	<c:choose>
-		<c:when test="${not empty computer}">Edit computer ${computer.name}</c:when>
-		<c:otherwise>Add Computer</c:otherwise>
-	</c:choose>
-	</h1>
+	<h1>Add Computer</h1>
 	
-	<form action="addcomputerpost" method="POST">
+	<sf:form method="POST" action="addcomputerpost" modelAttribute="computer">
 		<fieldset>
 			<div class="clearfix">
 				<label for="name">Computer name:</label>
 				<div class="input">
-					<input type="text" name="name" />
+					<sf:input path="name" type="text"/>
 					<span class="help-inline">Required</span>
 				</div>
 			</div>
@@ -36,37 +32,35 @@
 			<div class="clearfix">
 				<label for="introduced">Introduced date:</label>
 				<div class="input">
-					<input type="date" name="introducedDate" pattern="YY-MM-dd"/>
+					<sf:input type="date" path="introduced" pattern="YY-MM-dd"/>
 					<span class="help-inline">YYYY-MM-DD</span>
 				</div>
 			</div>
 			<div class="clearfix">
 				<label for="discontinued">Discontinued date:</label>
 				<div class="input">
-					<input type="date" name="discontinuedDate" pattern="YY-MM-dd"/>
+					<sf:input type="date" path="discontinued" pattern="YY-MM-dd"/>
 					<span class="help-inline">YYYY-MM-DD</span>
 				</div>
 			</div>
 			<div class="clearfix">
 				<label for="company">Company Name:</label>
 				<div class="input">
-					<select name="company">
-						<c:forEach items="${companies}" var="company"> 
-							<c:if test="${not empty company}">
-							    <option value='<c:out value="${company.id}"/>'>
-									<c:out value="${company.name}"/>
-								</option>	
-							</c:if>							
-						</c:forEach>
-					</select>
+					<sf:select path="companyId">
+						<sf:options items="${companies}" itemLabel="name" itemValue="id" />						
+					</sf:select>
 				</div>
 			</div>
 		</fieldset>
 		<div class="actions">
-			<input type="submit" value="Add" class="btn primary">
+			<c:if test="${type == 1}">
+			   <input type="submit" value="Add" class="btn primary">
+			</c:if>
+			<c:if test="${type == 2}">
+			   <input type="submit" value="Update" class="btn primary">
+			</c:if>
 			or <a href="dashboard" class="btn">Cancel</a>
 		</div>
-	</form>
+	</sf:form>
 </section>
-
 <jsp:include page="include/footer.jsp" />

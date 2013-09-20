@@ -11,4 +11,6 @@ public interface ComputerService {
 	void updateComputer(Computer comp);
 	List<Computer> getAllComputers();
 	long countAllComputers();
+	List<Computer> getComputersByName(String name);
+	void deleteComputer(Long id);
 }

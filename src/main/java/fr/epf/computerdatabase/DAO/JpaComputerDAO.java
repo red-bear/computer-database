@@ -41,4 +41,17 @@ public class JpaComputerDAO implements ComputerDAO {
 		return (long) query.getSingleResult();
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Computer> getComputersByName(String name) {
+		Query query = em.createNamedQuery(Computer.FIND_BY_NAME).setParameter("name", name);
+		return query.getResultList();
+	}
+
+	@Override
+	public void deleteComputer(Long id) {
+		Query query = em.createNamedQuery(Computer.DELETE).setParameter("id", id);
+		query.executeUpdate();
+	}
+
 }

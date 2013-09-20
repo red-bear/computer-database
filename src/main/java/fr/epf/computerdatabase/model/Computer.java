@@ -19,7 +19,9 @@ import javax.persistence.Transient;
 @Entity
 @NamedQueries ({
 	@NamedQuery(name= Computer.FIND_ALL,query="SELECT c FROM Computer c"),
-	@NamedQuery(name= Computer.COUNT_ALL,query="SELECT COUNT(c) FROM Computer c")
+	@NamedQuery(name= Computer.COUNT_ALL,query="SELECT COUNT(c) FROM Computer c"),
+	@NamedQuery(name=Computer.FIND_BY_NAME,query="SELECT c FROM Computer c WHERE lower(c.name) = lower(:name)"),
+	@NamedQuery(name=Computer.DELETE,query="DELETE FROM Computer c WHERE c.id LIKE :id")
 })
 @Table(name="computer")
 public class Computer {
@@ -40,6 +42,8 @@ public class Computer {
 	
 	public static final String FIND_ALL =  "Computer.findAll";
 	public static final String COUNT_ALL =  "Computer.countAll";
+	public static final String FIND_BY_NAME = "Computer.findByName";
+	public static final String DELETE = "Computer.delete";
 	
 	@Transient
 	private SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -81,6 +85,14 @@ public class Computer {
 	}
 	public void setCompany(Company company) {
 		this.company = company;
+	}
+	
+	public String toString(){
+		return "Computer:/n"
+				+"name: "+this.name
+				+"introduced: "+this.introduced
+				+"discontinued: "+this.discontinued
+				+"company: "+this.company.getName();
 	}
 }
 

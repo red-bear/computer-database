@@ -18,11 +18,11 @@
 <section id="main">
 	<h1 id="homeTitle"><c:out value="${computers_count}"/> Computers found</h1>
 	<div id="actions">
-		<form action="" method="GET">
+		<form action="searchcomputers" method="GET">
 			<input type="search" id="searchbox" name="search"
 				value="" placeholder="Search name">
 			<input type="submit" id="searchsubmit"
-				value="Filter by name"
+				value="Search by name"
 				class="btn primary">
 		</form>
 		<a class="btn success" id="add" href="addcomputer">Add Computer</a>
@@ -39,15 +39,18 @@
 				<th>Discontinued Date</th>
 				<!-- Table header for Company -->
 				<th>Company</th>
+				<!-- Header for suppression -->
+				<th>Delete</th>
 			</tr>
 		</thead>
 		<tbody>
 				<c:forEach items="${computers}" var="comp">  
 				<tr>
-					<td><a href="#" onclick=""><c:out value="${comp.name}"/></a></td>
+					<td><a href="editcomputer?id=${comp.id}" onclick=""><c:out value="${comp.name}"/></a></td>
 					<td><c:out value="${comp.introduced}"/></td>
 					<td><c:out value="${comp.discontinued}"/></td>
 					<td><c:out value="${comp.company.name}"/></td>
+					<td><a href="deletecomputer?id=${comp.id}">Delete</a></td>
 				</tr>
 				</c:forEach>
 			</tbody>

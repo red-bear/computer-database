@@ -41,4 +41,12 @@ public class ComputerServiceImpl implements ComputerService {
 	public long countAllComputers() {
 		return computerDAO.countAllComputers();
 	}
+	
+	public List<Computer> getComputersByName(String name) {
+		return computerDAO.getComputersByName(name);
+	}
+	
+	public void deleteComputer(Long id){
+		computerDAO.deleteComputer(id);
+	}
 }

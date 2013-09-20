@@ -16,7 +16,12 @@
 <jsp:include page="include/header.jsp" />
 <section id="main">
 
-	<h1>Add Computer</h1>
+	<h1>
+	<c:choose>
+		<c:when test="${not empty computer}">Edit computer ${computer.name}</c:when>
+		<c:otherwise>Add Computer</c:otherwise>
+	</c:choose>
+	</h1>
 	
 	<form action="addcomputerpost" method="POST">
 		<fieldset>
